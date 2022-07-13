@@ -21,7 +21,7 @@
                 >
                 <button class="black">Добавить</button>
                 <p >Добавленный текст: {{ newText }}</p>
-                <h2>Колличество элементов: {{ getListLength }}</h2>
+                <h2 class="form__h2">Колличество элементов: {{ getListLength }}</h2>
             </form>
             <ul v-if="list.length > 0">
                 <li class="main__li-name" v-for="item in list" :key="item.id">
