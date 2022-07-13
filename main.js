@@ -30,10 +30,7 @@ const app = {
     computed: {
       getListLength() {
         return this.list.length
-      },
-      addNewName(bool){
-       return bool
-    }
+      }
     },
     watch: {
         // watch - свойства - следят за нашим состоянием и отрабатывают тогда когда происходит изменение
