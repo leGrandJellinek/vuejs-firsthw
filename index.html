@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+    <div class="container">
+        <div id="app">
+            <h1>{{ title }}</h1>
+            <form @submit.prevent="addItem">
+                <input 
+                    type="text" 
+                    placeholder="Введите имя" 
+                    v-model="newText"
+                    class="black"
+                >
+                <button class="black">Добавить</button>
+                <p >Добавленный текст: {{ newText }}</p>
+                <h2>Колличество элементов: {{ getListLength }}</h2>
+            </form>
+            <ul v-if="list.length > 0">
+                <li class="main__li-name" v-for="item in list" :key="item.id">
+                    <div v-if="item.nameEdit">
+                        <input v-model="item.name"  @keyup.enter="item.nameEdit = false" @keyup.escape="item.nameEdit = false" class="black">
+                    </div>
+                    <p class="main__li-text" v-else v-on:click="item.nameEdit = true">
+                      {{item.name}}
+                    </p>
+                    <p class="main__li-text">Ваше id: {{ item.id }}</p>
+                    <button @click="delItem(item.id)" class="black">X</button>
+                </li>
+            </ul>
+            <h2 v-else>Ваш спусок пуст</h2>
+        </div>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>
