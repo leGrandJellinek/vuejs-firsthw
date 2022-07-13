@@ -12,7 +12,7 @@
     <div class="container">
         <div id="app">
             <h1>{{ title }}</h1>
-            <form @submit.prevent="addItem">
+            <form @submit.prevent="newText.length > 0 ? addItem() : '';">
                 <input 
                     type="text" 
                     placeholder="Введите имя" 
